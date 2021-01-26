@@ -1,0 +1,32 @@
+{% extends 'courses/base.html' %}
+{% load courses_custom_tags %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Login        
+{% endblock %}
+
+{% block content %}
+
+<div class="cotainer">
+    <h1 class="display-1">Login Page</h1>
+    <hr>
+    <div class="container ">
+        <div class="col-lg-4 mx-auto border rounded">
+        <p>this is new login page</p>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form|crispy }}
+    
+            <input type="submit" value="Login">
+           </form>
+    </div>
+</div>
+   <div><a href="{% url 'signup' %}">Don't have an account?</a></div>
+   <div><a href="{% url 'reset_password' %}">Forgot Password</a></div>
+    
+</div>
+
+    
+{%endblock%}
+

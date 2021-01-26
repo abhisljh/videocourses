@@ -1,0 +1,44 @@
+{% extends 'courses/base.html' %}
+{% load courses_custom_tags %} 
+
+{% block title %}
+       Sign Up 
+        
+{% endblock %}
+
+{% block content %}
+
+{{user_courses}}
+<br>
+<br>
+
+<br>
+<h1>My Courses </h1>
+<div class="container">
+  <div class="row">
+  
+    
+        {% for uc in user_courses %}
+        <div class="col-lg-4 col-xs-12 p-3">
+<div class="card mx-auto " style="width: 18rem;">
+    
+    <img class="card-img-top" src="{{uc.course.thumbnail.url}}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{uc.course.name}}</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    
+      <div class="col border-right"><a href="/course/{{uc.course.slug}}" class="btn btn-light btn-block">Start Course</a></div>
+      
+      
+    </div>
+  </div>
+</div>
+  {%endfor%}
+</div>
+</div>
+
+
+
+    
+{% endblock %}
+

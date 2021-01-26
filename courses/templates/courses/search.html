@@ -1,0 +1,56 @@
+{% extends 'courses/base.html' %}
+{% load courses_custom_tags %}
+
+{% block title %}
+       Online coourse learning  
+        
+{% endblock %}
+
+{% block content %}
+<h1>search result</h1>
+
+  <div class=" container">
+    <div class="row">
+    {% for course in object_list %}
+    <div class="col-lg-4 col-xs-12 p-3">
+        <div class="card mx-auto" style="width: 18rem;">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{ course.name }}</h5>
+              <p class="card-text"> {{ course.price }}</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+
+            <div class="card-footer p-0 ">
+                {% is_enrolled request course as enrolled %}
+               
+               
+                <div class="row no-gutters">
+                    {% if enrolled %}
+                    <div class="col border-right"><a href="/course/{{course.slug}}" class="btn btn-light btn-block">Start Course</a></div>
+                    
+                    {% else %}
+                    <div class="col border-right"><a href="/check-out/{{course.slug}}" class="btn btn-light btn-block">Enroll Now</a></div>
+                    <div class="col border"><a href="/course/{{course.slug}}" class="btn btn-light btn-block">show more</a>
+                       
+                    </div>
+                    {% endif %}
+                </div>
+               
+               
+            </div>
+          </div>
+          
+    </div>
+        
+      
+    {% endfor %}
+</div>
+</div>
+
+
+
+
+
+{% endblock %}
+

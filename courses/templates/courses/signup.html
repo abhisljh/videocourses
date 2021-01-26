@@ -1,0 +1,32 @@
+{% extends 'courses/base.html' %}
+{% load courses_custom_tags %} 
+{% load crispy_forms_tags %}
+
+{% block title %}
+       Sign Up 
+        
+{% endblock %}
+
+{% block content %}
+
+<div class="cotainer ">
+    <div class="col-lg-4">
+    <h1 class="display-1">Signup Page</h1>
+   <p>this is new signup page</p>
+   <div class="container">
+       <form action="/signup" method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+
+        <input type="submit" value="Register">
+       </form>
+   
+
+   </div>
+   </div>
+    </div>
+</div>
+
+    
+{% endblock %}
+
